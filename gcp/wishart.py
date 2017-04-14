@@ -92,7 +92,7 @@ class Wishart:
     a = numpy.zeros((d,d),dtype=numpy.float32)
     for r in xrange(d):
       if r!=0: a[r,:r] = numpy.random.normal(size=(r,))
-      a[r,r] = math.sqrt(random.gammavariate(0.5*(self.dof-d+1),2.0))
+      a[r,r] = math.sqrt(random.gammavariate(0.5*(self.dof-(r+1)+1),2.0))
     return numpy.dot(numpy.dot(numpy.dot(self.cholesky,a),a.T),self.cholesky.T)
 
 
